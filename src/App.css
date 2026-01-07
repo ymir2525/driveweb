@@ -373,60 +373,79 @@ body{
 
 /* ---------- CONTACT / PURCHASE ---------- */
 .contact{
-  padding: 52px 0 56px;
+  padding: 64px 0 72px;
   background: linear-gradient(180deg, #66bdf0, #ffffff);
 }
 
 .contactGrid{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /* left text+logo, right hardware links */
   gap: 38px;
-  align-items: center;
+  align-items: start;        /* top-align both columns */
+  justify-items: center;     /* center contents horizontally */
+  text-align: center;        /* center text in left column */
 }
 
 .buyLine{
-  color: rgba(10,25,44,0.65);
-  font-size: 12px;
-  margin-bottom: 14px;
+  color: rgba(10,25,44,0.75);
+  font-size: 14px;
+  margin-bottom: 0px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.buyCol{
+  display: flex;
+  flex-direction: column;    /* stack text on top, logo below */
+  align-items: center;       /* center everything horizontally */
+  gap: 24px;                 /* spacing between text and logo */
 }
 
 .contactLogoCard{
-  width: min(360px, 100%);
+  width: min(420px, 100%);
 }
 
 .linksCol{
-  padding-left: 6px;
+  padding-left: -20px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;    /* stack title + shopRows */
+  align-items: center;       /* center horizontally */
+  justify-content: center;   /* center vertically relative to left column */
+  gap: 20px;                 /* spacing between title and rows */
+  text-align: center;        /* center text */
 }
 
 .hardwareTitle{
   font-style: italic;
   color: rgba(10,25,44,0.7);
-  font-size: 12px;
-  margin-bottom: 14px;
+  font-size: 14px;           /* slightly bigger for balance */
   font-weight: 600;
+  margin-bottom: 8px;
 }
 
-.shopRow{
-  display: grid;
-  grid-template-columns: 62px 1fr;
-  gap: 14px;
-  align-items: center;
+.shopRow {
+  display: flex;
+  flex-direction: column;   /* stack icon above link */
+  align-items: center;      /* center horizontally */
+  justify-content: center;
+  gap: 6px;                 /* space between image and link */
   margin: 14px 0;
 }
 
-.shopIcon{
+.shopIcon {
   width: 56px;
   height: 56px;
   border-radius: 999px;
   object-fit: cover;
-  display: block;
 }
 
-.shopLink{
-  color: rgba(10,25,44,0.55);
-  font-size: 12px;
+.shopLink {
+  color: rgba(10,25,44,0.75);
+  font-size: 14px;
   text-decoration: underline;
   text-underline-offset: 3px;
+  text-align: center;       /* center text under icon */
 }
 
 .footer{
@@ -579,16 +598,33 @@ body{
 
 .features{
   padding: 40px 0 56px;
-  background: linear-gradient(180deg, #f4fbff, #ffffff);
+  background: linear-gradient(180deg, #ffffff 0%, #2f93d9 100%);
 }
 
-.featureGrid{
-.featureImages{ display:flex; gap:18px; justify-content:space-between; align-items:center; }
-.featurePhone{ width:180px; height:380px; flex:0 0 auto; }
+.featureGrid {
+  display: grid;
+  gap: 18px;
+}
+
+.featureImages {
+  display: flex;
+  gap: 18px;
+  justify-content: center; /* center the phones */
+  align-items: flex-start;
+  flex-wrap: wrap; /* allow wrapping on small screens */
+}
+
+.featurePhone {
+  width: 300vw; /* 25% of viewport width */
+  min-width: 160px; /* don’t go too small */
+  max-width: 500px; /* don’t get too big */
+  aspect-ratio: 180 / 380; /* keep original ratio */
+  flex: 0 0 auto; /* prevent shrinking */
+}
 
 .appShowcase{
   padding: 46px 0 64px;
-  background: linear-gradient(180deg, #e9f6ff, #f8fbff);
+  background: #2f93d9
 }
 
 .showcaseRow{
@@ -600,8 +636,8 @@ body{
 }
 
 .phoneMockup{
-  width: 140px;
-  height: 300px;
+  width: 350px;
+  height: 550px;
   border-radius: 22px;
   background: linear-gradient(180deg, #ffffff, #e6f4ff);
   border: 8px solid #eaf6ff;
@@ -620,9 +656,21 @@ body{
   font-weight: 700;
 }
 
-@media (max-width: 900px){
-  .featureGrid{ grid-template-columns: 1fr; }
-  .showcaseRow{ flex-direction: row; gap: 12px; overflow-x: auto; padding-bottom: 8px; }
-  .phoneMockup{ flex: 0 0 auto; }
-}
+@media (max-width: 900px) {
+  .featureImages {
+    justify-content: center;
+    gap: 14px;
+    overflow-x: auto; /* allow horizontal scroll */
+    padding-bottom: 12px;
+  }
+
+  .featurePhone {
+    width: 60vw; /* bigger on small screens */
+    max-width: none;
+  }
+
+  .phoneMockup {
+    width: 60vw;
+    max-width: none;
+  }
 }
