@@ -5,10 +5,9 @@ export default function Navbar({ onNav, active }) {
 
   const items = useMemo(
     () => [
-      { id: "home", label: "Home" },
-      { id: "about", label: "About" },
-      { id: "services", label: "Services" },
-      { id: "contact", label: "Contact" },
+      { id: "how", label: "How It Works?" },
+      { id: "features", label: "Features" },
+      { id: "contact", label: "Buy Now", primary: true },
     ],
     []
   );
@@ -22,16 +21,17 @@ export default function Navbar({ onNav, active }) {
     <header className="navWrap">
       <div className="navInner container">
         <div className="brand" onClick={() => clickItem("home")} role="button" tabIndex={0}>
-          D.R.I.V.E.
+          <img src="/drive-logo.png" alt="D.R.I.V.E." className="navLogo" onError={(e)=>{e.currentTarget.style.display='none'}} />
         </div>
 
         <nav className="navLinks">
           {items.map((it) => (
             <button
               key={it.id}
-              className={`navBtn ${active === it.id ? "navActive" : ""}`}
+              className={`navBtn ${it.primary ? "navPrimary" : ""} ${active === it.id ? "navActive" : ""}`}
               onClick={() => clickItem(it.id)}
             >
+              {it.primary && <span className="navIcon">✪</span>}
               {it.label}
             </button>
           ))}

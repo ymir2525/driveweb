@@ -4,10 +4,11 @@ import Footer from "./components/Footer.jsx";
 
 // Use /public assets so Vite won't crash if imports can't be resolved
 const driveLogo = "/drive-logo.png";
-const driveRoad = "/drive-road.jpg";
-const driveCamera = "/drive-camera.jpg";
+const driveRoad = "/drive-bg.jfif";
+const driveCamera = "/drive-camera.jfif";
 const lazadaIcon = "/lazada.png";
 const shopeeIcon = "/shopee.png";
+const placeholder = "/placeholder.svg";
 
 export default function App() {
   const [active, setActive] = useState("home");
@@ -25,36 +26,36 @@ export default function App() {
 
       {/* HOME (Hero) */}
       <section id="home" className="section hero">
-        <div className="container heroGrid">
-          <div className="heroLeft">
-            <h2 className="heroTitle">
+        <div className="container">
+          <div className="heroGrid">
+            <div className="heroLeft">
+              <div className="panel">
+              <h2 className="heroTitle">
               Drowsiness Recognition <br />
               through Intelligent <br />
               Vision Evaluation System
-            </h2>
+              </h2>
 
-            <p className="heroBody">
-              An IoT-based that integrates real-time monitoring technologies such
-              as camera based eyelid tracking, rapid blinking analysis,
-              <br />
-              and eyelid-closure detection to ensure continuous assessment of
-              driver alertness and enhance road safety through timely awareness
-              and automated response mechanisms with an application path.
-            </p>
+              <p className="heroBody">
+                An IoT-based system that integrates real-time monitoring
+                technologies to detect signs of drowsiness and provide timely
+                alerts, reducing the risk of fatigue-related incidents.
+              </p>
 
-            <div className="heroButtons">
-              <button className="btn btnPrimary" onClick={() => scrollToId("contact")}>
-                BUY NOW
-              </button>
-              <button className="btn btnOutline" onClick={() => scrollToId("services")}>
-                LEARN MORE
-              </button>
+              <div className="heroButtons">
+                <button className="btn btnPrimary" onClick={() => scrollToId("contact")}>Get Started</button>
+              </div>
             </div>
           </div>
-
           <div className="heroRight">
-            <div className="logoCard">
-              <img className="logoCardImg" src={driveLogo} alt="D.R.I.V.E. Logo" />
+            <div className="logoCard logoCardLarge">
+              <img
+                className="logoCardImg"
+                src={driveLogo}
+                alt="D.R.I.V.E. Logo"
+                onError={(e) => (e.currentTarget.src = placeholder)}
+              />
+            </div>
             </div>
           </div>
         </div>
@@ -64,32 +65,114 @@ export default function App() {
       <section id="services" className="section services">
         <div className="container">
           <div className="videoCard" role="img" aria-label="Night driving background">
-            <img className="videoBg" src={driveRoad} alt="Driving at night" />
+            <img
+              className="videoBg"
+              src={driveRoad}
+              alt="Driving at night"
+              onError={(e) => (e.currentTarget.src = placeholder)}
+            />
             <div className="videoOverlay" />
             <div className="videoText">
               <div className="videoBrand">D.R.I.V.E.</div>
               <div className="videoDesc">
-                D.R.I.V.E. combines real-time vigilance, intelligent alerts,
-                and seamless mobile connectivity to enhance road safety and
-                prevent fatigue-related incidents.
+                An IoT-based system that integrates real-time monitoring
+                technologies such as camera-based eyelid tracking, rapid
+                blinking analysis, and eyelid-closure detection to ensure
+                continuous assessment of driver alertness.
+              </div>
+              <div className="videoCta">
+                <button className="btn btnPrimary" onClick={() => scrollToId("how")}>How It Works?</button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ABOUT (dark strip with camera image + paragraph) */}
-      <section id="about" className="section about">
-        <div className="container aboutRow">
-          <div className="aboutImageWrap">
-            <img className="aboutImage" src={driveCamera} alt="Camera device" />
-          </div>
+      {/* HOW IT WORKS */}
+      <section id="how" className="section how">
+        <div className="container">
+          <div className="howRow">
+            <div className="howImageWrap">
+              <img
+                className="howImage"
+                src={driveCamera}
+                alt="Camera device"
+                onError={(e) => (e.currentTarget.src = placeholder)}
+              />
+            </div>
 
-          <p className="aboutText">
-            D.R.I.V.E. is used to continuously monitor driver alertness,
-            provide immediate in-car warnings, and log events for safety oversight
-            and combining IoT Hardware, AI analysis, and mobile integration.
-          </p>
+            <div>
+              <h3 className="howTitle">How It Works?</h3>
+              <div className="howList">
+                <div className="howItem">
+                  <div className="howIcon">
+                    <img className="howIconImg" src={placeholder} alt="Eye Monitoring icon" onError={(e) => (e.currentTarget.src = placeholder)} />
+                  </div>
+                  <div>
+                    <div className="howItemTitle">Eye Monitoring</div>
+                    <div className="howItemDesc">Detects prolonged eyelid closure, irregular blinking, pupil size changes.</div>
+                  </div>
+                </div>
+
+                <div className="howItem">
+                  <div className="howIcon">
+                    <img className="howIconImg" src={placeholder} alt="Notifications icon" onError={(e) => (e.currentTarget.src = placeholder)} />
+                  </div>
+                  <div>
+                    <div className="howItemTitle">Automatic Notifications</div>
+                    <div className="howItemDesc">Mild, Moderate, and Severe alerts triggered based on sensor data.</div>
+                  </div>
+                </div>
+
+                <div className="howItem">
+                  <div className="howIcon">
+                    <img className="howIconImg" src={placeholder} alt="Steering icon" onError={(e) => (e.currentTarget.src = placeholder)} />
+                  </div>
+                  <div>
+                    <div className="howItemTitle">Steering Behavior</div>
+                    <div className="howItemDesc">Monitors hand presence and micro-corrections to ensure engagement.</div>
+                  </div>
+                </div>
+
+                <div className="howItem">
+                  <div className="howIcon">
+                    <img className="howIconImg" src={placeholder} alt="Drive history icon" onError={(e) => (e.currentTarget.src = placeholder)} />
+                  </div>
+                  <div>
+                    <div className="howItemTitle">Drive History</div>
+                    <div className="howItemDesc">Records timestamped alerts, driver responses, and sensor data for review.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURES - Mobile App Features */}
+      <section id="features" className="section features">
+        <div className="container">
+          <h3 className="sectionTitle">Mobile App Features</h3>
+          <div className="featureGrid">
+            <div className="featureImages">
+              <img className="featurePhone phoneMockup" src={placeholder} alt="Smart Detection" onError={(e) => (e.currentTarget.src = placeholder)} />
+              <img className="featurePhone phoneMockup" src={placeholder} alt="Location Tracking" onError={(e) => (e.currentTarget.src = placeholder)} />
+              <img className="featurePhone phoneMockup" src={placeholder} alt="Contact Dashboard" onError={(e) => (e.currentTarget.src = placeholder)} />
+              <img className="featurePhone phoneMockup" src={placeholder} alt="Drowsiness History" onError={(e) => (e.currentTarget.src = placeholder)} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* APP SHOWCASE */}
+      <section id="app" className="section appShowcase">
+        <div className="container">
+          <h3 className="sectionTitle">About D.R.I.V.E App</h3>
+          <div className="showcaseRow">
+            <img className="phoneMockup" src={placeholder} alt="Log In" onError={(e) => (e.currentTarget.src = placeholder)} />
+            <img className="phoneMockup" src={placeholder} alt="Driver Status" onError={(e) => (e.currentTarget.src = placeholder)} />
+            <img className="phoneMockup" src={placeholder} alt="Profile" onError={(e) => (e.currentTarget.src = placeholder)} />
+          </div>
         </div>
       </section>
 
