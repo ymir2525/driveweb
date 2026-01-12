@@ -3,13 +3,22 @@
   --blue2: #4fb3ee;
   --ink: #0f172a;
   --navH: 72px;
+  --pagePad: 125px;
+}
+
+/* Font stacks */
+:root{
+  --font-head: 'Montserrat', sans-serif;
+  --font-button: 'Orbitron', sans-serif;
+  --font-desc: 'Lato', sans-serif;
+  --font-body: 'Roboto Serif', 'Roboto Condensed', 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
 *{ box-sizing: border-box; }
 html, body { height: 100%; }
 body{
   margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: var(--font-body);
   color: #0b1220;
   background: #ffffff;
 }
@@ -21,7 +30,7 @@ body{
 .container{
   width: 100%;
   max-width: none;
-  padding: 0 24px;
+  padding: 0 var(--pagePad);
   margin: 0;
 }
 
@@ -77,17 +86,39 @@ body{
   font-weight: 600;
   cursor: pointer;
   padding: 8px 12px;
+  position: relative;
+  overflow: visible;
 }
 
 .navBtn:hover{
   color: #081a2d;
 }
 
+/* animated underline for nav buttons */
+.navBtn::after{
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  background: var(--blue1);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1);
+  border-radius: 2px;
+}
+.navBtn:hover::after{ transform: scaleX(1); }
+.navActive::after{ transform: scaleX(1); }
+
+/* subtle hover background for primary nav */
+.navPrimary{ transition: background-color 180ms ease, color 180ms ease; }
+.navPrimary:hover{ background: rgba(255,255,255,0.06); }
+
 .navActive{
   color: rgba(10,25,44,0.95);
   font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 6px;
+  text-decoration: none; /* remove default underline to avoid double underline with animated ::after */
 }
 
 /* burger */
@@ -116,7 +147,8 @@ body{
   min-height: 640px;
   padding-top: calc(var(--navH) + 56px);
   padding-bottom: 60px;
-  background: linear-gradient(to top, #ffffff 0%, var(--blue2) 60%, var(--blue1) 100%);
+  background: var(--blue1);
+  color: #ffffff;
 }
 
 .heroGrid{
@@ -128,8 +160,9 @@ body{
 
 .heroTitle{
   margin: 0 0 18px;
-  color: #081a2d;
+  color: #000000;
   font-size: 36px;
+  font-family: var(--font-head);
   line-height: 1.15;
   font-weight: 800;
 }
@@ -137,8 +170,9 @@ body{
 .heroBody{
   margin: 0 0 24px;
   max-width: 520px;
-  color: rgba(10, 25, 44, 0.65);
+  color: rgba(0, 0, 0, 0.92);
   font-size: 15px;
+  font-family: var(--font-desc);
   line-height: 1.6;
 }
 
@@ -168,6 +202,7 @@ body{
   font-size: 13px;
   letter-spacing: 0.5px;
   cursor: pointer;
+  font-family: var(--font-button);
 }
 
 .btnPrimary{
@@ -228,9 +263,9 @@ body{
   border-radius: 0;
   height: 78vh; /* reduced for better fit on smaller screens */
   min-height: 420px;
-  /* make full-bleed without using vw to avoid overflow issues inside padded container */
-  width: calc(100% + 48px);
-  margin-left: -24px;
+  /* make full-bleed while preserving page padding variable */
+  width: calc(100% + calc(var(--pagePad) * 2));
+  margin-left: calc(var(--pagePad) * -1);
   left: 0;
   transform: none;
   max-width: none;
@@ -254,20 +289,22 @@ body{
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-end;
   text-align: right;
   padding: 64px 6vw;
   color: rgba(255,255,255,0.98);
-  transform: translateY(-6vh);
 }
 
 .videoBrand{
-  position: absolute;
-  right: 6vw;
-  top: 18vh;
+  position: relative;
+  right: auto;
+  top: auto;
+  align-self: flex-end;
+  margin-bottom: 12px;
   font-weight: 800;
   font-size: 48px;
+  font-family: var(--font-head);
   letter-spacing: 3px;
 }
 
@@ -314,8 +351,24 @@ body{
 /* If a white halo remains it is likely baked into the PNG. Replacing the asset
   with a trimmed/transparent image is the most reliable fix. */
 
-.howTitle{ color: #eaeaea; font-size: 48px; margin: 6px 0 18px; font-weight:800; text-align: center; }
+.howTitle{ color: #eaeaea; font-size: 48px; margin: 6px 0 18px; font-weight:800; text-align: center; font-family: var(--font-head); }
 .howContent{ color: rgba(255,255,255,0.95); }
+
+/* ---------- Scroll reveal ---------- */
+.reveal{ opacity: 0; transform: translateY(18px); transition: opacity 580ms ease, transform 580ms cubic-bezier(.2,.8,.2,1); }
+.reveal.in-view{ opacity: 1; transform: none; }
+.reveal .reveal{ transform: translateY(10px); }
+.reveal .videoBrand{ transform: translateY(0); }
+.reveal .videoDesc{ transition-delay: 120ms; }
+.reveal .featureImages img{ transition: transform 420ms ease; }
+.reveal.in-view .featureImages img{ transform: translateY(0); opacity: 1; }
+
+/* small stagger helpers */
+.reveal .featureImages img{ opacity: 0; transform: translateY(10px); }
+.reveal.in-view .featureImages img:nth-child(1){ transition: transform 420ms ease 0ms, opacity 420ms ease 0ms; }
+.reveal.in-view .featureImages img:nth-child(2){ transition: transform 420ms ease 70ms, opacity 420ms ease 70ms; }
+.reveal.in-view .featureImages img:nth-child(3){ transition: transform 420ms ease 120ms, opacity 420ms ease 120ms; }
+.reveal.in-view .featureImages img:nth-child(4){ transition: transform 420ms ease 190ms, opacity 420ms ease 190ms; }
 .howList{ display: grid; gap: 18px; grid-auto-flow: row; max-width: 640px; margin: 0 auto; }
 .howItem{ display: flex; gap: 18px; align-items:flex-start; }
 .howItem{ justify-content: center; }
@@ -373,6 +426,7 @@ body{
   font-size: 14px;
   line-height: 1.5;
   text-align: center;
+  font-family: var(--font-desc);
 }
 
 /* ---------- CONTACT / PURCHASE ---------- */
@@ -396,6 +450,7 @@ body{
   margin-bottom: 0px;
   line-height: 1.5;
   text-align: left;
+  font-family: var(--font-desc);
 }
 
 .buyCol{
@@ -575,8 +630,7 @@ body{
   }
   .mobileActive{
     font-weight: 800;
-    text-decoration: underline;
-    text-underline-offset: 6px;
+    text-decoration: none; /* avoid double underline when desktop animated underline is used */
   }
 
   .footerGrid{
@@ -598,16 +652,45 @@ body{
   font-weight: 800;
   font-size: 20px;
   margin: 16px 0 22px;
+  font-family: var(--font-head);
 }
 
 .features{
   padding: 40px 0 56px;
-  background: linear-gradient(180deg, #ffffff 0%, #2f93d9 100%);
+  background: linear-gradient(180deg, var(--blue1) 0%, #ffffff 100%);
 }
+
+/* ensure section titles inside the combined area are readable on blue */
+.features .sectionTitle{ color: rgba(255,255,255,0.98); }
 
 .featureGrid {
   display: grid;
   gap: 18px;
+}
+
+/* Keep the features and app showcase sections full-bleed while
+   keeping their inner content aligned to the page padding. This
+   prevents the global `--pagePad` from shifting these section
+   backgrounds but preserves readable inner margins. */
+.features > .container,
+.appShowcase > .container {
+  /* leave a small inset so section backgrounds aren't fully edge-to-edge */
+  padding-left: calc(var(--pagePad) / 2);
+  padding-right: calc(var(--pagePad) / 2);
+}
+
+.features .featureGrid,
+.appShowcase .showcaseRow {
+  /* inner content uses half the global page padding so mockups align visually */
+  padding: 0 calc(var(--pagePad) / 2);
+}
+
+.featureImages{
+  display: flex;
+  gap: 18px;
+  justify-content: center; /* ensure phones align centered */
+  align-items: center;     /* vertically center phone mockups */
+  flex-wrap: wrap;
 }
 
 .featureImages {
@@ -619,17 +702,20 @@ body{
 }
 
 .featurePhone {
-  width: 25vw; /* reasonable phone size relative to viewport */
-  min-width: 120px; /* don’t go too small */
-  max-width: 420px; /* cap growth */
+  width: 25vw; /* slightly smaller phone size on desktop */
+  min-width: 115px; /* don’t go too small */
+  max-width: 325px; /* cap growth */
   aspect-ratio: 180 / 380; /* keep original ratio */
   flex: 0 0 auto; /* prevent shrinking */
 }
 
 .appShowcase{
   padding: 46px 0 64px;
-  background: #2f93d9
+  background: transparent;
 }
+
+/* nested contact inside .features should blend with the parent gradient */
+.features .contact{ background: transparent; }
 
 .showcaseRow{
   display: flex;
@@ -640,13 +726,44 @@ body{
 }
 
 .phoneMockup{
-  width: 350px;
-  height: 550px;
+  width: 303px;
+  height: 580px;
   border-radius: 22px;
   background: linear-gradient(180deg, #ffffff, #e6f4ff);
   border: 8px solid #eaf6ff;
   display: grid;
   place-items: center;
+}
+
+/* ---------- FEATURE INTRO (inserted between app and contact) ---------- */
+.featureIntro{
+  padding: 36px 0 34px;
+  background: transparent;
+  color: rgba(10,25,44,0.95);
+}
+.featureIntro .introRow{
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.introLogoBox{
+  width: 180px;
+  height: 180px;
+  border-radius: 26px;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  box-shadow: none;
+}
+.introLogo{ width: 120px; height: auto; display:block }
+.introParagraph{ margin: 0 0 12px; line-height: 1.6; color: rgba(10,25,44,0.95); font-family: var(--font-desc); }
+.introList{ margin: 0; padding-left: 18px; color: rgba(10,25,44,0.9); font-family: var(--font-body); }
+.introList li{ margin-bottom: 12px; }
+
+@media (max-width: 900px){
+  .featureIntro .introRow{ grid-template-columns: 1fr; gap: 16px; }
+  .introLogoBox{ justify-self: center; }
 }
 
 .phoneScreen{
@@ -669,12 +786,12 @@ body{
   }
 
   .featurePhone {
-    width: 60vw; /* bigger on small screens */
+    width: 50vw; /* slightly smaller on small screens */
     max-width: none;
   }
 
   .phoneMockup {
-    width: 60vw;
+    width: 50vw;
     max-width: none;
   }
 }
@@ -691,12 +808,14 @@ body{
     transform: none;
     align-items: center;
     text-align: center;
+    justify-content: flex-start;
   }
 
   .videoBrand {
     position: relative;
     right: auto;
     top: auto;
+    align-self: center;
     font-size: 36px;
     margin-bottom: 8px;
   }
@@ -724,8 +843,8 @@ body{
   .heroTitle { font-size: 22px; }
   .videoBrand { font-size: 28px; }
   .videoDesc { font-size: 16px; }
-  .featurePhone { width: 72vw; min-width: 140px; }
-  .phoneMockup { width: 72vw; }
+  .featurePhone { width: 68vw; min-width: 140px; }
+  .phoneMockup { width: 68vw; }
   .navInner { padding: 0 12px; }
   .navLogo { width: 64px; }
 }

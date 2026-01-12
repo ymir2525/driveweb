@@ -149,7 +149,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* FEATURES - Mobile App Features */}
+      {/* FEATURES + APP + CONTACT combined */}
       <section id="features" className="section features">
         <div className="container">
           <h3 className="sectionTitle">Mobile App Features</h3>
@@ -162,64 +162,85 @@ export default function App() {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* APP SHOWCASE */}
-      <section id="app" className="section appShowcase">
-        <div className="container">
-          <h3 className="sectionTitle">About D.R.I.V.E App</h3>
-          <div className="showcaseRow">
-            <img className="phoneMockup" src={placeholder} alt="Log In" onError={(e) => (e.currentTarget.src = placeholder)} />
-            <img className="phoneMockup" src={placeholder} alt="Driver Status" onError={(e) => (e.currentTarget.src = placeholder)} />
-            <img className="phoneMockup" src={placeholder} alt="Profile" onError={(e) => (e.currentTarget.src = placeholder)} />
+        <section id="app" className="section appShowcase">
+          <div className="container">
+            <h3 className="sectionTitle">About D.R.I.V.E App</h3>
+            <div className="showcaseRow">
+              <img className="phoneMockup" src={placeholder} alt="Log In" onError={(e) => (e.currentTarget.src = placeholder)} />
+              <img className="phoneMockup" src={placeholder} alt="Driver Status" onError={(e) => (e.currentTarget.src = placeholder)} />
+              <img className="phoneMockup" src={placeholder} alt="Profile" onError={(e) => (e.currentTarget.src = placeholder)} />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CONTACT (purchase + hardware links) */}
-      <section id="contact" className="section contact">
-        <div className="container contactGrid">
-          <div className="buyCol">
-            <div className="buyText">
-              <div className="buyLine">
-                Ready to buy? Purchase this device <br />
-                easily through our secure link.
+        <section id="intro" className="section featureIntro">
+          <div className="container">
+            <div className="introRow">
+              <div className="introLogoBox">
+                <img className="introLogo" src={driveLogo} alt="D.R.I.V.E. Logo" />
+              </div>
+
+              <div>
+                <p className="introParagraph">
+                  Our group focuses on developing IoT-enabled driver monitoring  products that ensure safety and vigilance on the road. D.R.I.V.E. is a new generation of intelligent drowsiness detection technology that integrates seamlessly with vehicles and mobile applications to provide real-time monitoring and management. It acts as your road safety companion, designed to reduce accidents caused by fatigue.
+                </p>
+
+                <ol className="introList">
+                  <li><strong>Your vigilant co-pilot for safer journeys.</strong> D.R.I.V.E. is an intelligent, IoT-powered safety solution designed to keep drivers alert and protected by analyzing facial cues and eyelid movement in real time.</li>
+                  <li><strong>Instant alerts when it matters most.</strong> From subtle reminders to urgent warnings, D.R.I.V.E. responds immediately to drowsiness, helping drivers stay focused and in control.</li>
+                  <li><strong>Seamless mobile integration.</strong> Review past alerts, track sleep patterns, and keep emergency contacts informed all from one secure app.</li>
+                  <li><strong>Simple, portable, and ready to go.</strong> With its rechargeable Type-C design, D.R.I.V.E. is easy to set up and always prepared to safeguard every trip.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="section contact">
+          <div className="container contactGrid">
+            <div className="buyCol">
+              <div className="buyText">
+                <div className="buyLine">
+                  Ready to buy? Purchase this device <br />
+                  easily through our secure link.
+                </div>
+              </div>
+
+              <div className="logoCard contactLogoCard">
+                <img className="logoCardImg" src={driveLogo} alt="D.R.I.V.E. Logo" />
               </div>
             </div>
 
-            <div className="logoCard contactLogoCard">
-              <img className="logoCardImg" src={driveLogo} alt="D.R.I.V.E. Logo" />
+            <div className="linksCol">
+              <div className="hardwareTitle">Hardware link:</div>
+
+              <div className="shopRow">
+                <img className="shopIcon" src={lazadaIcon} alt="Lazada" />
+                <a
+                  className="shopLink"
+                  href="https://www.lazada.com.ph/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  https://www.lazada.com.ph/
+                </a>
+              </div>
+
+              <div className="shopRow">
+                <img className="shopIcon" src={shopeeIcon} alt="Shopee" />
+                <a
+                  className="shopLink"
+                  href="https://shopee.ph/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  https://shopee.ph/
+                </a>
+              </div>
             </div>
           </div>
-
-          <div className="linksCol">
-            <div className="hardwareTitle">Hardware link:</div>
-
-            <div className="shopRow">
-              <img className="shopIcon" src={lazadaIcon} alt="Lazada" />
-              <a
-                className="shopLink"
-                href="https://www.lazada.com.ph/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                https://www.lazada.com.ph/
-              </a>
-            </div>
-
-            <div className="shopRow">
-              <img className="shopIcon" src={shopeeIcon} alt="Shopee" />
-              <a
-                className="shopLink"
-                href="https://shopee.ph/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                https://shopee.ph/
-              </a>
-            </div>
-          </div>
-        </div>
+        </section>
       </section>
 
       <Footer />
