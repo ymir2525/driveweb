@@ -181,18 +181,18 @@ export default function App() {
                 <img className="introLogo" src={driveLogo} alt="D.R.I.V.E. Logo" />
               </div>
 
-              <div>
+              <div className="introTextCol">
                 <p className="introParagraph">
                   Our group focuses on developing IoT-enabled driver monitoring  products that ensure safety and vigilance on the road. D.R.I.V.E. is a new generation of intelligent drowsiness detection technology that integrates seamlessly with vehicles and mobile applications to provide real-time monitoring and management. It acts as your road safety companion, designed to reduce accidents caused by fatigue.
                 </p>
-
-                <ol className="introList">
-                  <li><strong>Your vigilant co-pilot for safer journeys.</strong> D.R.I.V.E. is an intelligent, IoT-powered safety solution designed to keep drivers alert and protected by analyzing facial cues and eyelid movement in real time.</li>
-                  <li><strong>Instant alerts when it matters most.</strong> From subtle reminders to urgent warnings, D.R.I.V.E. responds immediately to drowsiness, helping drivers stay focused and in control.</li>
-                  <li><strong>Seamless mobile integration.</strong> Review past alerts, track sleep patterns, and keep emergency contacts informed all from one secure app.</li>
-                  <li><strong>Simple, portable, and ready to go.</strong> With its rechargeable Type-C design, D.R.I.V.E. is easy to set up and always prepared to safeguard every trip.</li>
-                </ol>
               </div>
+
+              <ol className="introList">
+                <li><strong>Your vigilant co-pilot for safer journeys.</strong> D.R.I.V.E. is an intelligent, IoT-powered safety solution designed to keep drivers alert and protected by analyzing facial cues and eyelid movement in real time.</li>
+                <li><strong>Instant alerts when it matters most.</strong> From subtle reminders to urgent warnings, D.R.I.V.E. responds immediately to drowsiness, helping drivers stay focused and in control.</li>
+                <li><strong>Seamless mobile integration.</strong> Review past alerts, track sleep patterns, and keep emergency contacts informed all from one secure app.</li>
+                <li><strong>Simple, portable, and ready to go.</strong> With its rechargeable Type-C design, D.R.I.V.E. is easy to set up and always prepared to safeguard every trip.</li>
+              </ol>
             </div>
           </div>
         </section>

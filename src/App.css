@@ -435,52 +435,68 @@ body{
   background: linear-gradient(180deg, #66bdf0, #ffffff);
 }
 
+
 .contactGrid{
   display: grid;
-  grid-template-columns: 1fr 1fr; /* left text+logo, right hardware links */
+  grid-template-columns: 1fr 420px; /* left flexible, right fixed narrow column */
   gap: 38px;
   align-items: start;        /* top-align both columns */
-  justify-items: center;     /* center contents horizontally */
-  text-align: center;        /* center text in left column */
+  justify-items: start;      /* align column contents to their start */
+  text-align: left;          /* left-align text in left column */
+  max-width: 1100px;        /* constrain and center the grid */
+  margin: 0 auto;           /* center the grid on the page */
+  padding: 0 24px;          /* small side breathing room */
+  position: relative;       /* allow left offset to nudge toward center-left */
+  right: -61px;              /* nudge grid 60px to the left */
+  transform: translateX(40px); /* nudge the whole contact block slightly right */
 }
 
+
 .buyLine{
-  color: rgba(10,25,44,0.75);
-  font-size: 14px;
-  margin-bottom: 0px;
-  line-height: 1.5;
-  text-align: left;
-  font-family: var(--font-desc);
+  color: rgba(10,25,44,0.95);
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  line-height: 1.25;
+  text-align: center;        /* align with the logo underneath */
+  font-family: var(--font-head);
+  width: 100%;
 }
 
 .buyCol{
   display: flex;
   flex-direction: column;    /* stack text on top, logo below */
-  align-items: center;       /* center everything horizontally */
-  gap: 24px;                 /* spacing between text and logo */
+  align-items: center;       /* center the headline and logo */
+  gap: 18px;                 /* spacing between text and logo */
 }
 
 .contactLogoCard{
-  width: min(420px, 100%);
+  width: 220px;              /* smaller logo card */
+  border-radius: 48px;       /* more rounded */
+  padding: 18px;             /* slightly smaller padding */
+  border: 3px solid rgba(0,0,0,0.08);
+  background: #ffffff;
+  align-self: center;        /* center logo within left column */
 }
 
 .linksCol{
-  padding-left: -20px;
-  margin-top: 50px;
+  padding-left: 0;
+  margin-top: 0;
   display: flex;
   flex-direction: column;    /* stack title + shopRows */
   align-items: center;       /* center horizontally */
-  justify-content: center;   /* center vertically relative to left column */
-  gap: 20px;                 /* spacing between title and rows */
-  text-align: center;        /* center text */
+  justify-content: flex-start;
+  gap: 28px;                 /* spacing between title and rows */
+  text-align: center;        /* center text inside right column */
 }
 
 .hardwareTitle{
-  font-style: italic;
-  color: rgba(10,25,44,0.7);
-  font-size: 14px;           /* slightly bigger for balance */
-  font-weight: 600;
+  font-style: normal;
+  color: rgba(10,25,44,0.95);
+  font-size: 22px;           /* match left headline size */
+  font-weight: 800;          /* bold */
   margin-bottom: 8px;
+  font-family: var(--font-head);
 }
 
 .shopRow {
@@ -596,6 +612,9 @@ body{
 
   .contactGrid{
     grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    left: 0; /* remove left nudge on small screens */
   }
 
   .aboutRow{
@@ -746,6 +765,9 @@ body{
   grid-template-columns: 180px 1fr;
   gap: 24px;
   align-items: start;
+  max-width: 980px; /* constrain width to compress content */
+  margin: 0 auto;   /* center the intro row */
+  padding: 0 28px;  /* left/right breathing room */
 }
 .introLogoBox{
   width: 180px;
@@ -757,13 +779,15 @@ body{
   box-shadow: none;
 }
 .introLogo{ width: 120px; height: auto; display:block }
-.introParagraph{ margin: 0 0 12px; line-height: 1.6; color: rgba(10,25,44,0.95); font-family: var(--font-desc); }
-.introList{ margin: 0; padding-left: 18px; color: rgba(10,25,44,0.9); font-family: var(--font-body); }
-.introList li{ margin-bottom: 12px; }
+.introParagraph{ margin: 0 0 10px; line-height: 2.0; color: rgba(10,25,44,0.95); font-family: var(--font-desc); font-size: 18px; max-width: 720px; }
+/* place the numbered list beneath the logo + paragraph; align under the text column on wide screens */
+.featureIntro .introList{ margin: 12px 0 0; padding-left: 8px; color: rgba(10,25,44,0.9); font-family: var(--font-desc); grid-column: 1 / 3; list-style-position: outside; margin-left: 0; }
+.featureIntro .introList li{ margin-bottom: 12px; }
 
 @media (max-width: 900px){
   .featureIntro .introRow{ grid-template-columns: 1fr; gap: 16px; }
   .introLogoBox{ justify-self: center; }
+  .featureIntro .introList{ grid-column: 1 / -1; padding-left: 18px; }
 }
 
 .phoneScreen{
