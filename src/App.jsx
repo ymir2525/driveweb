@@ -6,8 +6,6 @@ import Footer from "./components/Footer.jsx";
 const driveLogo = "/drive-logo.png";
 const driveRoad = "/drive-bg.jfif";
 const driveCamera = "/drive-camera.jfif";
-const lazadaIcon = "/lazada.png";
-const shopeeIcon = "/shopee.png";
 const placeholder = "/placeholder.svg";
 
 export default function App() {
@@ -106,7 +104,7 @@ export default function App() {
               <div className="howList">
                 <div className="howItem">
                   <div className="howIcon">
-                    <img className="howIconImg" src={placeholder} alt="Eye Monitoring icon" onError={(e) => (e.currentTarget.src = placeholder)} />
+                    <img className="howIconImg" src="/1.png" alt="Eye Monitoring icon" onError={(e) => (e.currentTarget.src = placeholder)} />
                   </div>
                   <div>
                     <div className="howItemTitle">Eye Monitoring</div>
@@ -116,7 +114,7 @@ export default function App() {
 
                 <div className="howItem">
                   <div className="howIcon">
-                    <img className="howIconImg" src={placeholder} alt="Notifications icon" onError={(e) => (e.currentTarget.src = placeholder)} />
+                    <img className="howIconImg" src="/2.png" alt="Notifications icon" onError={(e) => (e.currentTarget.src = placeholder)} />
                   </div>
                   <div>
                     <div className="howItemTitle">Automatic Notifications</div>
@@ -126,7 +124,7 @@ export default function App() {
 
                 <div className="howItem">
                   <div className="howIcon">
-                    <img className="howIconImg" src={placeholder} alt="Steering icon" onError={(e) => (e.currentTarget.src = placeholder)} />
+                    <img className="howIconImg" src="/3.png" alt="Steering icon" onError={(e) => (e.currentTarget.src = placeholder)} />
                   </div>
                   <div>
                     <div className="howItemTitle">Steering Behavior</div>
@@ -136,7 +134,7 @@ export default function App() {
 
                 <div className="howItem">
                   <div className="howIcon">
-                    <img className="howIconImg" src={placeholder} alt="Drive history icon" onError={(e) => (e.currentTarget.src = placeholder)} />
+                    <img className="howIconImg" src="/4.png" alt="Drive history icon" onError={(e) => (e.currentTarget.src = placeholder)} />
                   </div>
                   <div>
                     <div className="howItemTitle">Drive History</div>
@@ -155,10 +153,10 @@ export default function App() {
           <h3 className="sectionTitle">Mobile App Features</h3>
           <div className="featureGrid">
             <div className="featureImages">
-              <img className="featurePhone phoneMockup" src={placeholder} alt="Smart Detection" onError={(e) => (e.currentTarget.src = placeholder)} />
-              <img className="featurePhone phoneMockup" src={placeholder} alt="Location Tracking" onError={(e) => (e.currentTarget.src = placeholder)} />
-              <img className="featurePhone phoneMockup" src={placeholder} alt="Contact Dashboard" onError={(e) => (e.currentTarget.src = placeholder)} />
-              <img className="featurePhone phoneMockup" src={placeholder} alt="Drowsiness History" onError={(e) => (e.currentTarget.src = placeholder)} />
+              <img className="featurePhone phoneMockup" src="/shot1.png" alt="Smart Detection" onError={(e) => (e.currentTarget.src = placeholder)} />
+              <img className="featurePhone phoneMockup" src="/shot2.png" alt="Location Tracking" onError={(e) => (e.currentTarget.src = placeholder)} />
+              <img className="featurePhone phoneMockup" src="/shot3.png" alt="Contact Dashboard" onError={(e) => (e.currentTarget.src = placeholder)} />
+              <img className="featurePhone phoneMockup" src="/shot4.png" alt="Drowsiness History" onError={(e) => (e.currentTarget.src = placeholder)} />
             </div>
           </div>
         </div>
@@ -167,9 +165,9 @@ export default function App() {
           <div className="container">
             <h3 className="sectionTitle">About D.R.I.V.E App</h3>
             <div className="showcaseRow">
-              <img className="phoneMockup" src={placeholder} alt="Log In" onError={(e) => (e.currentTarget.src = placeholder)} />
-              <img className="phoneMockup" src={placeholder} alt="Driver Status" onError={(e) => (e.currentTarget.src = placeholder)} />
-              <img className="phoneMockup" src={placeholder} alt="Profile" onError={(e) => (e.currentTarget.src = placeholder)} />
+              <img className="phoneMockup" src="/shot5.png" alt="Log In" onError={(e) => (e.currentTarget.src = placeholder)} />
+              <img className="phoneMockup" src="/shot6.png" alt="Driver Status" onError={(e) => (e.currentTarget.src = placeholder)} />
+              <img className="phoneMockup" src="/shot7.png" alt="Profile" onError={(e) => (e.currentTarget.src = placeholder)} />
             </div>
           </div>
         </section>
@@ -216,7 +214,7 @@ export default function App() {
               <div className="hardwareTitle">Hardware link:</div>
 
               <div className="shopRow">
-                <img className="shopIcon" src={lazadaIcon} alt="Lazada" />
+                <img className="shopIcon" src="/lazada.png" alt="Lazada" />
                 <a
                   className="shopLink"
                   href="https://www.lazada.com.ph/"
@@ -228,7 +226,7 @@ export default function App() {
               </div>
 
               <div className="shopRow">
-                <img className="shopIcon" src={shopeeIcon} alt="Shopee" />
+                <img className="shopIcon" src="/shopee.png" alt="Shopee" />
                 <a
                   className="shopLink"
                   href="https://shopee.ph/"

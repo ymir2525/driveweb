@@ -379,12 +379,12 @@ body{
 .howList{ display: grid; gap: 18px; grid-auto-flow: row; max-width: 640px; margin: 0 auto; }
 .howItem{ display: flex; gap: 18px; align-items:flex-start; }
 .howItem{ justify-content: center; }
-.howIcon{ display:flex; align-items:center; justify-content:center; padding:0; width:auto; height:auto; background: transparent; color: inherit; border-radius: 6px; box-shadow: none; }
+.howIcon{ display:flex; align-items:center; justify-content:center; padding:0; width:auto; height:auto; background: transparent; color: inherit; border-radius: 0; box-shadow: none; }
 .howItemTitle{ font-weight:800; color:#ffffff; font-size:16px; margin-bottom:6px; }
 .howItemDesc{ color: rgba(255,255,255,0.75); font-size:14px; line-height:1.45; max-width:360px; }
 
 /* icon image inside the circular .howIcon */
-.howIconImg{ width: 72px; height: auto; object-fit: contain; display: block; border-radius: 6px; }
+.howIconImg{ width: 105px; height: auto; object-fit: contain; display: block; border-radius: 0; background: transparent; }
 
 /* Alternate alignment: 1:left, 2:right, 3:left, 4:right */
 .howList .howItem:nth-child(odd) {
@@ -406,6 +406,19 @@ body{
   .howList .howItem > div{ text-align: left; }
   .howImageWrap{ }
   .howImage{ width:220px; height:220px; transform: none; }
+  .navInner {
+    padding: 0 18px;
+  }
+  .navLogo {
+    width: 64px;
+  }
+  .brand {
+    font-size: 18px;
+  }
+  .navBtn {
+    font-size: 14px;
+    padding: 8px 8px;
+  }
 }
 
 .aboutRow{
@@ -477,7 +490,7 @@ body{
 }
 
 .contactLogoCard{
-  width: 220px;              /* smaller logo card */
+  width: 290px;              /* smaller logo card */
   border-radius: 70px;       /* more rounded */
   padding: 18px;             /* slightly smaller padding */
   border: 2px solid #000000;
@@ -515,8 +528,8 @@ body{
 }
 
 .shopIcon {
-  width: 56px;
-  height: 56px;
+  width: 140px;
+  height: 120px;
   border-radius: 999px;
 
 }
@@ -727,6 +740,18 @@ body{
     grid-template-columns: 1fr;
     gap: 18px;
   }
+  .navInner {
+    padding: 0 8px;
+  }
+  .brand {
+    font-size: 16px;
+  }
+  .navLogo {
+    width: 48px;
+  }
+  .navWrap {
+    height: 56px;
+  }
 }
 
 /* ---------- FEATURES / APP SHOWCASE ---------- */
@@ -813,7 +838,6 @@ body{
   height: 580px;
   border-radius: 22px;
   background: linear-gradient(180deg, #ffffff, #e6f4ff);
-  border: 8px solid #eaf6ff;
   display: grid;
   place-items: center;
 }
@@ -935,4 +959,7 @@ body{
   .phoneMockup { width: 68vw; }
   .navInner { padding: 0 12px; }
   .navLogo { width: 64px; }
+  .brand { font-size: 13px; }
+  .navBtn { font-size: 12px; padding: 6px 4px; }
+  .navWrap { height: 44px; }
 }
