@@ -243,6 +243,41 @@ export default function App() {
         </section>
       </section>
 
+      {/* BOTTOM: Initial Preparation + About Us */}
+      <section id="prep" className="section bottomPrep leftAligned">
+        <div className="container">
+          <h3 className="sectionTitle">Initial Preparation for D.R.I.V.E.</h3>
+          <p className="prepIntro">
+            When you receive your D.R.I.V.E. device, begin with these simple
+            steps to ensure proper setup:
+          </p>
+
+          <ol className="prepList">
+            <li>
+              <strong>Unbox the Hardware</strong>
+              <div>Check that all components are included – the device, Type-C charging cable, mounts, and sensors – and confirm they are free from damage.</div>
+            </li>
+            <li>
+              <strong>Charge the Device</strong>
+              <div>Use the Type-C charger to fully charge the unit before first use. You can also use it while charging.</div>
+            </li>
+            <li>
+              <strong>Install the Camera Mount</strong>
+              <div>Position the camera securely on the dashboard, centered to capture the driver's face clearly. Ensure there are no obstructions.</div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="about-bottom" className="section bottomAbout leftAligned">
+        <div className="container">
+          <h3 className="sectionTitle aboutBottomTitle">About Us</h3>
+          <p className="aboutBottomText">
+            We are Information Technology students from the University of Caloocan currently implementing a hardware-based system designed to help drivers maintain focus while on the road. This device utilizes intelligent monitoring to detect signs of drowsiness and provides timely alerts, thereby reducing the risk of accidents caused by fatigue.
+          </p>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
